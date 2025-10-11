@@ -1,0 +1,12 @@
+:root {
+  --bg: #ffffff;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+

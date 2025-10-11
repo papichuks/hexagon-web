@@ -1,38 +1,37 @@
+# Hexagon Next.js Frontend (Hedera + RainbowKit)
 
+This is a fresh Next.js app that replaces the legacy CRA frontend. It uses RainbowKit + Wagmi for wallet connection and targets the Hedera Testnet.
 
+## Prerequisites
 
-# Hexagon Frontend
-
-This folder contains the code for the frontend of the Hexagon. The frontend is built using React, a popular JavaScript library for building user interfaces.
+- Node.js 18+
 
 ## Setup
 
-1. Ensure that Node.js and npm (Node Package Manager) are installed on your machine.
-2. Clone this repository and navigate to the `frontend` folder.
-3. Install the required dependencies by running the following command:
-   ```
-   npm install
-   ```
-
-## Configuration
-
-Before running the frontend, make sure to configure the connection to the backend and blockchain. Update the necessary variables in the `.env` file with the appropriate values:
-
 ```
-REACT_APP_BACKEND_URL=<backend_url>
-REACT_APP_BLOCKCHAIN_PROVIDER=<blockchain_provider>
-REACT_APP_CONTRACT_ADDRESS=<contract_address>
+cd new-frontend
+npm install
 ```
 
-Replace `contract address` in [hexagon.js](./src/utils/hexagon.js) with the deployed smart contract address.
-
-## Running the Frontend
-
-To start the frontend, run the following command from the `frontend` folder:
+Create `.env.local` with:
 
 ```
-npm start
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_walletconnect_cloud_project_id
+NEXT_PUBLIC_HEXAGON_ADDRESS=0xYourDeployedHexagonOnHederaTestnet
 ```
 
-The frontend should now be accessible at `http://localhost:3000` in your web browser.
+## Develop
+
+```
+npm run dev
+```
+
+Open http://localhost:3000
+
+## Structure
+
+- `src/app` — App Router pages (`/`, `/verification`, `/manufacturer`)
+- `src/providers/wallet.tsx` — Wagmi, RainbowKit, React Query, Chakra providers
+- `src/lib/wagmi.ts` — Hedera testnet chain + client config
+- `src/abi/Hexagon.json` — Contract ABI used by components
 
