@@ -21,7 +21,7 @@
       "@/app/*": ["src/app/*"],
       "@/theme/*": ["src/theme/*"],
       "@/theme": ["src/theme/index"],
-      "@/utils/*": ["src/utils/*"]
+      "@/utils/*": ["utils/*"]
     },
     "incremental": true,
     "plugins": [
