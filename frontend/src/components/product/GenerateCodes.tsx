@@ -28,7 +28,8 @@ import {
 } from '@chakra-ui/react';
 import { FiCode, FiDownload, FiRefreshCw, FiUpload } from 'react-icons/fi';
 import ShortUniqueId from 'short-unique-id';
-import { useWriteContract } from 'wagmi';
+import { useWriteContract, useAccount, useChainId } from 'wagmi';
+import { config } from '@/lib/wagmi';
 import { HEXAGON_ABI, hashCode } from '@/lib/hexagon';
 import jsPDF from 'jspdf';
 
@@ -43,6 +44,8 @@ export default function GenerateCodes({ productName }: GenerateCodesProps) {
   const [codes, setCodes] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const { writeContractAsync } = useWriteContract();
+  const { address: account } = useAccount();
+  const chainId = useChainId();
   const toast = useToast();
 
   function generate() {
@@ -90,6 +93,8 @@ export default function GenerateCodes({ productName }: GenerateCodesProps) {
         abi: HEXAGON_ABI,
         functionName: 'createItems',
         args: [productName, codeHashes],
+        chain: config.chains[0],
+        account,
       });
 
       toast({

@@ -16,9 +16,9 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import { FiPlus, FiPackage } from 'react-icons/fi';
-import { useWriteContract } from 'wagmi';
+import { useWriteContract, useAccount } from 'wagmi';
 import { waitForTransactionReceipt } from 'wagmi/actions';
-import { config } from '@/lib/wagmi';
+import { config, hederaTestnet } from '@/lib/wagmi';
 import { useRouter } from 'next/navigation';
 import { useQueryClient } from '@tanstack/react-query';
 import { HEXAGON_ABI } from '@/lib/hexagon';
@@ -30,6 +30,7 @@ export default function CreateProductForm() {
   const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const { writeContractAsync } = useWriteContract();
+  const { address } = useAccount();
   const toast = useToast();
   const router = useRouter();
   const queryClient = useQueryClient();
@@ -155,6 +156,8 @@ export default function CreateProductForm() {
         abi: HEXAGON_ABI,
         functionName: 'createProduct',
         args: [name, `ipfs://${cid}`],
+        chain: hederaTestnet,
+        account: address as `0x${string}`,
       });
       await waitForTransactionReceipt(config, { hash });
 
