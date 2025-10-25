@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 /**
  * @title Hexagon Drug Authentication Dapp
- * @dev A smart contract for authenticating pharmaceutical products on the Filecoin FVM Blockchain.
+ * @dev A smart contract for authenticating pharmaceutical products on the Hedera EVM network.
  */
 contract Hexagon {
     /**

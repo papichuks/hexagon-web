@@ -28,7 +28,7 @@ If you use a .env file, don't commit and push any changes to .env files that may
 
 ## Fund the Deployer Address
 
-Go to the [Hedera faucet](https://portal.hedera.com/faucet), and paste in your Hedera EVM address from the previous step. This will send some calibration testnet FIL to the account.
+Visit the [Hedera testnet faucet](https://portal.hedera.com/faucet) and paste in your Hedera EVM address from the previous step. The faucet will credit the account with testnet HBAR so you can deploy and interact with the contract.
 
 ## Run tests
 
@@ -36,10 +36,10 @@ Go to the [Hedera faucet](https://portal.hedera.com/faucet), and paste in your H
 npx hardhat test
 ```
 
-## Deploy the Contracts
+## Deploy the Contract
 
-Type in the following command in the terminal to deploy the smart contract:
+Type in the following command in the terminal to deploy the smart contract to Hedera testnet:
 
 ```
-npx hardhat run scripts/deploy.js
+npx hardhat run scripts/deploy.ts --network hederaTestnet
 ```
