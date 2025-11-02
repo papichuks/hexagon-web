@@ -1,3 +1,7 @@
+link to hedera certificate: https://drive.google.com/file/d/1aHRRBSnf9JaiTG7hyOaw1rjnL8NTohU1/view?usp=drivesdk
+
+link to pitch deck: https://docs.google.com/presentation/d/17IPBuC6Oigv1VyFy_NTFMhmTlsysJYtrAW66SIwgYRE/edit?usp=drivesdk
+
 # Hexagon
 
 Hexagon is a decentralized product-authentication platform built for the Hedera Africa Hackathon.  
